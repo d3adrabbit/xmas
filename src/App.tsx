@@ -1,22 +1,33 @@
 import { Suspense, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+
 import { Canvas } from '@react-three/fiber';
 import { Model } from './model';
-import { Environment } from '@react-three/drei';
+import { ContactShadows, Environment, OrbitControls } from '@react-three/drei';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <Canvas>
-        <Suspense fallback={null}>
-          <Model />
-          <Environment preset="dawn" />
-        </Suspense>
-      </Canvas>
-    </div>
+    <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 5, 6] }}>
+      <Suspense fallback={null}>
+        <Model />
+        <Environment preset="dawn" />
+        <ContactShadows
+          position={[0, -0.5, 0]}
+          opacity={0.4}
+          scale={10}
+          blur={4}
+          far={4}
+          color="red"
+        />
+        <OrbitControls
+          enableZoom={false}
+          autoRotate
+          minPolarAngle={Math.PI / 2 - 0.5}
+          maxPolarAngle={Math.PI / 2 - 0.5}
+        />
+      </Suspense>
+    </Canvas>
   );
 }
 
