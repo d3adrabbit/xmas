@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 html,
 body,
 #root {
@@ -12,7 +14,7 @@ body,
 }
 
 body {
-  background: #cbd1db;
+  background: #e6e4ef;
 }
 
 #root {
@@ -30,8 +32,41 @@ body {
   width: 32px;
   height: 32px;
   cursor: pointer;
+}
 
+.sound {
   position: fixed;
   right: 20px;
-  top: 20px;
+  bottom: 20px;
+}
+
+.share {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+
+.content {
+  position: fixed;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3rem;
+  color: #417469;
+}
+
+.other {
+  font-size: 12px;
+  color: #888;
+}
+
+a {
+  color: #888;
+  text-decoration: inherit;
+  padding: 0 5px;
 }
