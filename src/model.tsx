@@ -376,4 +376,4 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   );
 }
 
-useGLTF.preload('/tree.glb');
+useGLTF.preload('/model.glb');
