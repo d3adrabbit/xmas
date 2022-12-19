@@ -5,12 +5,18 @@ import { Model } from './model';
 import { ContactShadows, Environment, OrbitControls } from '@react-three/drei';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 5, 6] }}>
       <Suspense fallback={null}>
         <Model />
+        <ambientLight intensity={0.35} />
+        <spotLight
+          position={[10, 10, 10]}
+          angle={0.15}
+          penumbra={1}
+          shadow-mapSize={[512, 512]}
+          castShadow
+        />
         <Environment preset="dawn" />
         <ContactShadows
           position={[0, -0.5, 0]}
