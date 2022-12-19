@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 5, 6] }}>
-        <Suspense fallback={null}>
+        <Suspense fallback={'loading...'}>
           <Model />
           <ambientLight intensity={0.35} />
           <spotLight

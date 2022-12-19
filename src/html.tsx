@@ -1,9 +1,9 @@
-import react, { useRef, useState } from 'react';
+import react, { useEffect, useRef, useState } from 'react';
 import soundOnIcon from './assets/soundOn.svg';
 import soundOffIcon from './assets/soundOff.svg';
 
 function Html() {
-  const [sound, setSound] = useState(false);
+  const [sound, setSound] = useState(true);
 
   const musicRef = useRef<HTMLAudioElement>(null);
 
@@ -15,6 +15,10 @@ function Html() {
     }
     setSound(!sound);
   };
+
+  useEffect(() => {
+    musicRef.current?.play();
+  }, []);
 
   return (
     <>
