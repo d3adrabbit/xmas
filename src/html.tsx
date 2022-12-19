@@ -1,9 +1,12 @@
 import react, { useEffect, useRef, useState } from 'react';
 import soundOnIcon from './assets/soundOn.svg';
 import soundOffIcon from './assets/soundOff.svg';
+import arrowIcon from './assets/arrow.svg';
 
 function Html() {
-  const [sound, setSound] = useState(true);
+  const [sound, setSound] = useState(false);
+
+  const [active, setActive] = useState(false);
 
   const musicRef = useRef<HTMLAudioElement>(null);
 
@@ -12,21 +15,29 @@ function Html() {
       musicRef.current?.pause();
     } else {
       musicRef.current?.play();
+      if (active == false) {
+        setActive(true);
+      }
     }
     setSound(!sound);
   };
 
-  useEffect(() => {
-    musicRef.current?.play();
-  }, []);
-
   return (
     <>
-      <img
-        src={sound ? soundOnIcon : soundOffIcon}
-        className="icon sound"
-        onClick={handleClick}
-      />
+      <div className="sound">
+        {!active && (
+          <span className="tips">
+            Turn on the Radio
+            <img src={arrowIcon} className="icon" alt="" />
+          </span>
+        )}
+        <img
+          src={sound ? soundOnIcon : soundOffIcon}
+          className="icon"
+          onClick={handleClick}
+        />
+      </div>
+
       <audio
         loop
         src="/we-wish-you-a-merry-christmas-125995.mp3"

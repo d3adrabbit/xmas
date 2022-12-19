@@ -39,6 +39,14 @@ body {
   position: fixed;
   right: 20px;
   top: 20px;
+  color: #ccc;
+  display: flex;
+}
+
+.tips {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
 }
 
 .share {
