@@ -1,15 +1,20 @@
 import { Suspense, useState } from 'react';
 
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useLoader } from '@react-three/fiber';
 import { Model } from './model';
-import { ContactShadows, Environment, OrbitControls } from '@react-three/drei';
+import {
+  ContactShadows,
+  Environment,
+  Loader,
+  OrbitControls,
+} from '@react-three/drei';
 import Html from './html';
 
 function App() {
   return (
     <>
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 5, 6] }}>
-        <Suspense fallback={'loading...'}>
+        <Suspense fallback={null}>
           <Model />
           <ambientLight intensity={0.35} />
           <spotLight
@@ -36,6 +41,12 @@ function App() {
           />
         </Suspense>
       </Canvas>
+      <Loader
+        containerStyles={{ background: '#e6e4ef' }}
+        dataStyles={{ color: '#417469' }}
+        innerStyles={{ background: '#e6e4ef' }}
+        barStyles={{ background: '#417469' }}
+      />
       <div className="html">
         <Html />
       </div>
