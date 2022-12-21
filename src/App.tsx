@@ -1,16 +1,16 @@
-import { Suspense, useLayoutEffect, useState } from 'react';
+import { Suspense, useLayoutEffect, useState } from "react";
 
-import { Canvas, extend, useLoader } from '@react-three/fiber';
-import { Model } from './model';
+import { Canvas, extend, useLoader } from "@react-three/fiber";
+import { Model } from "./model";
 import {
   ContactShadows,
   Effects,
   Environment,
   Loader,
   OrbitControls,
-} from '@react-three/drei';
-import Html from './html';
-import { UnrealBloomPass } from 'three-stdlib';
+} from "@react-three/drei";
+import Html from "./html";
+import { UnrealBloomPass } from "three-stdlib";
 
 extend({ UnrealBloomPass });
 
@@ -37,9 +37,9 @@ function App() {
             far={4}
             color="red"
           />
-          <Effects disableGamma>
+          {/* <Effects disableGamma>
             <unrealBloomPass threshold={1} strength={1.0} radius={0.5} />
-          </Effects>
+          </Effects> */}
           <OrbitControls
             enableZoom={false}
             autoRotate
@@ -49,10 +49,10 @@ function App() {
         </Suspense>
       </Canvas>
       <Loader
-        containerStyles={{ background: '#e6e4ef' }}
-        dataStyles={{ color: '#417469' }}
-        innerStyles={{ background: '#e6e4ef' }}
-        barStyles={{ background: '#417469' }}
+        containerStyles={{ background: "#e6e4ef" }}
+        dataStyles={{ color: "#417469" }}
+        innerStyles={{ background: "#e6e4ef" }}
+        barStyles={{ background: "#417469" }}
       />
       <div className="html">
         <Html />
