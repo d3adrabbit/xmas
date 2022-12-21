@@ -60,6 +60,10 @@ type GLTFResult = GLTF & {
     球体047: THREE.Mesh;
     球体048: THREE.Mesh;
     球体049: THREE.Mesh;
+    Star: THREE.Mesh;
+    柱体030: THREE.Mesh;
+    Star001: THREE.Mesh;
+    柱体031: THREE.Mesh;
     logo: THREE.Mesh;
     柱体019: THREE.Mesh;
     NURBS_曲线001: THREE.Mesh;
@@ -74,6 +78,7 @@ type GLTFResult = GLTF & {
     ['black.001']: THREE.MeshPhysicalMaterial;
     gift: THREE.MeshPhysicalMaterial;
     ['ornage.001']: THREE.MeshPhysicalMaterial;
+    star: THREE.MeshPhysicalMaterial;
     logo: THREE.MeshStandardMaterial;
     ['suger.001']: THREE.MeshPhysicalMaterial;
   };
@@ -421,10 +426,39 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         scale={-0.08}
       />
       <mesh
+        geometry={nodes.Star.geometry}
+        material={materials.star}
+        position={[-0.83, 3.52, -1.21]}
+        rotation={[-0.08, -0.84, -1.32]}
+        scale={0.22}
+      />
+      <mesh
+        geometry={nodes.柱体030.geometry}
+        material={materials.gun}
+        position={[-0.81, 3.27, -1.17]}
+        scale={0.03}
+      />
+      <mesh
+        geometry={nodes.Star001.geometry}
+        // material={materials.star}
+        position={[0.78, 2.74, -1.24]}
+        rotation={[-2.97, -1.23, 2.05]}
+        scale={0.17}
+      >
+        <meshStandardMaterial></meshStandardMaterial>
+      </mesh>
+      <mesh
+        geometry={nodes.柱体031.geometry}
+        material={materials.gun}
+        position={[0.76, 2.55, -1.21]}
+        rotation={[0, -1.07, 0]}
+        scale={0.02}
+      />
+      <mesh
         geometry={nodes.logo.geometry}
         material={materials.logo}
         position={[-0.87, 2.15, 0.45]}
-        rotation={[0.27, -1.36, 0.26]}
+        rotation={[0.07, -0.66, 0.07]}
         scale={0.48}
       />
       <mesh
