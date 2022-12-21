@@ -28,8 +28,6 @@ type GLTFResult = GLTF & {
     柱体024: THREE.Mesh;
     球体024: THREE.Mesh;
     球体025: THREE.Mesh;
-    球体026: THREE.Mesh;
-    球体027: THREE.Mesh;
     柱体025: THREE.Mesh;
     柱体026: THREE.Mesh;
     球体028: THREE.Mesh;
@@ -40,9 +38,8 @@ type GLTFResult = GLTF & {
     柱体029: THREE.Mesh;
     球体031: THREE.Mesh;
     立方体006: THREE.Mesh;
-    立方体007: THREE.Mesh;
-    立方体008: THREE.Mesh;
     立方体009: THREE.Mesh;
+    立方体009_1: THREE.Mesh;
     立方体010: THREE.Mesh;
     立方体011: THREE.Mesh;
     球体032: THREE.Mesh;
@@ -63,6 +60,7 @@ type GLTFResult = GLTF & {
     球体047: THREE.Mesh;
     球体048: THREE.Mesh;
     球体049: THREE.Mesh;
+    logo: THREE.Mesh;
     柱体019: THREE.Mesh;
     NURBS_曲线001: THREE.Mesh;
   };
@@ -72,10 +70,11 @@ type GLTFResult = GLTF & {
     wood: THREE.MeshPhysicalMaterial;
     snow: THREE.MeshPhysicalMaterial;
     black: THREE.MeshPhysicalMaterial;
-    gift: THREE.MeshPhysicalMaterial;
     gun: THREE.MeshStandardMaterial;
     ['black.001']: THREE.MeshPhysicalMaterial;
+    gift: THREE.MeshPhysicalMaterial;
     ['ornage.001']: THREE.MeshPhysicalMaterial;
+    logo: THREE.MeshStandardMaterial;
     ['suger.001']: THREE.MeshPhysicalMaterial;
   };
 };
@@ -209,20 +208,8 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         geometry={nodes.球体025.geometry}
         material={materials.black}
         position={[1.12, 2.52, 0.68]}
-        rotation={[-0.3, 0.01, -0.17]}
+        rotation={[-0.21, 0, -0.12]}
         scale={[0.07, 0.07, 0.05]}
-      />
-      <mesh
-        geometry={nodes.球体026.geometry}
-        material={materials.gift}
-        position={[0.9, 2.34, 0.89]}
-        scale={0.07}
-      />
-      <mesh
-        geometry={nodes.球体027.geometry}
-        material={materials.gift}
-        position={[1.14, 2.35, 0.55]}
-        scale={0.07}
       />
       <mesh
         geometry={nodes.柱体025.geometry}
@@ -294,27 +281,17 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         rotation={[0, 0.22, 0.05]}
         scale={[0.45, 0.28, 0.45]}
       />
-      <mesh
-        geometry={nodes.立方体007.geometry}
-        material={materials.gift}
+      <group
         position={[-0.85, 1.93, 0.46]}
         rotation={[0, 0.22, 0.05]}
         scale={[0.5, 0.22, 0.5]}
-      />
-      <mesh
-        geometry={nodes.立方体008.geometry}
-        material={materials['ornage.001']}
-        position={[-0.85, 1.93, 0.46]}
-        rotation={[0, 0.22, 0.05]}
-        scale={[0.51, 0.22, 0.51]}
-      />
-      <mesh
-        geometry={nodes.立方体009.geometry}
-        material={materials['ornage.001']}
-        position={[-0.85, 1.93, 0.47]}
-        rotation={[-2.9, 1.35, 2.92]}
-        scale={[0.51, 0.22, 0.51]}
-      />
+      >
+        <mesh geometry={nodes.立方体009.geometry} material={materials.gift} />
+        <mesh
+          geometry={nodes.立方体009_1.geometry}
+          material={materials['ornage.001']}
+        />
+      </group>
       <mesh
         geometry={nodes.立方体010.geometry}
         material={materials['ornage.001']}
@@ -442,6 +419,13 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         material={materials.snow}
         position={[0.54, 1.93, -0.73]}
         scale={-0.08}
+      />
+      <mesh
+        geometry={nodes.logo.geometry}
+        material={materials.logo}
+        position={[-0.87, 2.15, 0.45]}
+        rotation={[0.27, -1.36, 0.26]}
+        scale={0.48}
       />
       <mesh
         geometry={nodes.柱体019.geometry}
