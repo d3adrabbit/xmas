@@ -1,7 +1,8 @@
-import react, { useEffect, useRef, useState } from 'react';
+import react, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import soundOnIcon from './assets/soundOn.svg';
 import soundOffIcon from './assets/soundOff.svg';
 import arrowIcon from './assets/arrow.svg';
+import confetti from 'canvas-confetti';
 
 function Html() {
   const [sound, setSound] = useState(false);
@@ -21,6 +22,41 @@ function Html() {
     }
     setSound(!sound);
   };
+
+  const randomInRange = (min: number, max: number) => {
+    return Math.random() * (max - min) + min;
+  };
+
+  // useLayoutEffect(() => {
+  //   (function frame() {
+  //     const duration = 15 * 1000;
+  //     const animationEnd = Date.now() + duration;
+  //     let skew = 1;
+  //     let timeLeft = animationEnd - Date.now();
+  //     let ticks = Math.max(200, 500 * (timeLeft / duration));
+  //     skew = Math.max(0.8, skew - 0.001);
+
+  //     confetti({
+  //       particleCount: 1,
+  //       startVelocity: 0,
+  //       ticks: ticks,
+  //       origin: {
+  //         x: Math.random(),
+  //         // since particles fall down, skew start toward the top
+  //         y: Math.random() * skew - 0.2,
+  //       },
+  //       colors: ['#ffffff'],
+  //       shapes: ['circle'],
+  //       gravity: randomInRange(0.4, 0.6),
+  //       scalar: randomInRange(0.4, 1),
+  //       drift: randomInRange(-0.4, 0.4),
+  //     });
+
+  //     if (timeLeft > 0) {
+  //       requestAnimationFrame(frame);
+  //     }
+  //   })();
+  // }, []);
 
   return (
     <>
