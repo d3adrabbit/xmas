@@ -440,13 +440,11 @@ export function Model(props: JSX.IntrinsicElements['group']) {
       />
       <mesh
         geometry={nodes.Star001.geometry}
-        // material={materials.star}
+        material={materials.star}
         position={[0.78, 2.74, -1.24]}
         rotation={[-2.97, -1.23, 2.05]}
         scale={0.17}
-      >
-        <meshStandardMaterial></meshStandardMaterial>
-      </mesh>
+      ></mesh>
       <mesh
         geometry={nodes.柱体031.geometry}
         material={materials.gun}

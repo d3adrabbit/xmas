@@ -1,14 +1,18 @@
 import { Suspense, useLayoutEffect, useState } from 'react';
 
-import { Canvas, useLoader } from '@react-three/fiber';
+import { Canvas, extend, useLoader } from '@react-three/fiber';
 import { Model } from './model';
 import {
   ContactShadows,
+  Effects,
   Environment,
   Loader,
   OrbitControls,
 } from '@react-three/drei';
 import Html from './html';
+import { UnrealBloomPass } from 'three-stdlib';
+
+extend({ UnrealBloomPass });
 
 function App() {
   return (
@@ -33,6 +37,9 @@ function App() {
             far={4}
             color="red"
           />
+          <Effects disableGamma>
+            <unrealBloomPass threshold={1} strength={1.0} radius={0.5} />
+          </Effects>
           <OrbitControls
             enableZoom={false}
             autoRotate
